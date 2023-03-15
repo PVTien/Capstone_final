@@ -1,0 +1,4 @@
+export const TOKEN_CYBERSOFT =
+  "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3ht bGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ 9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yM DA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3M iOiJzdHJpbmciLCJuYmYiOjE2MjcyOTAzODYsImV4cCI6M TYyNzI5Mzk4Nn0.75DGRowsyI7Sl6bmYgKuZ8oaG36fOr0TUWbUwAjtDs";
+
+export const BASE_URL = "https://jiranew.cybersoft.edu.vn/api";

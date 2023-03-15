@@ -1,14 +1,47 @@
-import React from "react";
-import { Layout, Button, Checkbox, Form, Input } from "antd";
+import React, { useState } from "react";
+import { Layout, Button, Checkbox, Form, Input, notification } from "antd";
 import {
   FacebookFilled,
   LockOutlined,
   TwitterCircleFilled,
   UserOutlined,
 } from "@ant-design/icons";
+import { loginApi } from "../../services/user";
+import { useNavigate } from "react-router-dom";
 const { Sider, Content } = Layout;
 
 export default function Login() {
+  const navigate = useNavigate()
+  const [state, setState] = useState({
+    email: "",
+    passWord: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setState({
+      ...state,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const result = await loginApi(state);
+      console.log(result);
+      notification.success({
+        message: "Đăng nhập thành công"
+      });
+      navigate("/");
+    } catch (error) {
+      notification.error({
+        message: "Email hoặc mật khẩu không chính xác"
+      })
+    }
+    
+  };
+
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
@@ -24,9 +57,8 @@ export default function Login() {
     <>
       <Layout>
         <Sider style={sider} width={window.innerWidth / 2}></Sider>
-
         <Content>
-          <form action="">
+          <form onSubmit={handleSubmit}>
             <div
               style={formLayout}
               className="d-flex justify-content-center align-items-center flex-column"
@@ -38,6 +70,8 @@ export default function Login() {
                   size="large"
                   placeholder="Email"
                   prefix={<UserOutlined />}
+                  name="email"
+                  onChange={handleChange}
                 />
               </div>
               <div className="mt-3">
@@ -46,6 +80,8 @@ export default function Login() {
                   size="large"
                   placeholder="Password"
                   prefix={<LockOutlined />}
+                  name="passWord"
+                  onChange={handleChange}
                 />
               </div>
               <Button
@@ -53,11 +89,11 @@ export default function Login() {
                 type="primary"
                 size="large"
                 className="mt-3"
+                htmlType="submit"
               >
                 Login
               </Button>
-              <div className="social mt-3">
-              </div>
+              <div className="social mt-3"></div>
             </div>
           </form>
 
