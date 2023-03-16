@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Layout, Button, Checkbox, Form, Input, notification } from "antd";
 import {
   FacebookFilled,
@@ -8,10 +9,12 @@ import {
 } from "@ant-design/icons";
 import { loginApi } from "../../services/user";
 import { useNavigate } from "react-router-dom";
+import { setUserInfoAction } from "../../store/actions/userAction";
 const { Sider, Content } = Layout;
 
 export default function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [state, setState] = useState({
     email: "",
     passWord: "",
@@ -30,16 +33,17 @@ export default function Login() {
     try {
       const result = await loginApi(state);
       console.log(result);
+      localStorage.getItem("USER_INFO_KEY", JSON.stringify(result.data.content));
+      dispatch(setUserInfoAction(result.data.content));
       notification.success({
-        message: "Đăng nhập thành công"
+        message: "Đăng nhập thành công",
       });
       navigate("/");
     } catch (error) {
       notification.error({
-        message: "Email hoặc mật khẩu không chính xác"
-      })
+        message: "Email hoặc mật khẩu không chính xác",
+      });
     }
-    
   };
 
   const onFinish = (values) => {
@@ -72,6 +76,7 @@ export default function Login() {
                   prefix={<UserOutlined />}
                   name="email"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="mt-3">
@@ -82,6 +87,7 @@ export default function Login() {
                   prefix={<LockOutlined />}
                   name="passWord"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <Button

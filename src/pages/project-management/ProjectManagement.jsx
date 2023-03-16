@@ -1,12 +1,7 @@
-import React from "react";
-import InfoModal from "./components/info-modal/InfoModal";
-import Main from "./components/main/Main";
+import React from 'react'
 
 export default function ProjectManagement() {
   return (
-    <>
-      <Main />
-      <InfoModal />
-    </>
-  );
+    <div>ProjectManagement</div>
+  )
 }

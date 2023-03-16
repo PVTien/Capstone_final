@@ -17,13 +17,13 @@ export default function MenuJira() {
       <div className="control">
         <div>
           <i className="fa fa-credit-card" />
-          <NavLink to="/" activeClassName="active">Cyber Board</NavLink>
+          <NavLink to="/" activeClassName="active">Project Management</NavLink>
           {/* <span onClick={() => navigate("/")}>Cyber Board</span> */}
         </div>
         <div>
           <i className="fa fa-cog" />
-          <NavLink to="/createproject" activeClassName="active">Create project</NavLink>
-          {/* <span onClick={() => navigate("/createproject")}>Create project</span> */}
+          <NavLink to="/create-project" activeClassName="active">Create project</NavLink>
+          {/* <span onClick={() => navigate("/create-project")}>Create project</span> */}
         </div>
       </div>
       <div className="feature">
