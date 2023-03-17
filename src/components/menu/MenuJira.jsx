@@ -7,7 +7,7 @@ export default function MenuJira() {
     <div className="menu">
       <div className="account">
         <div className="avatar">
-          <img src={require("../../assets/img/download.jfif")} alt />
+          <img src={require("../../assets/img/download.jfif")} alt="" />
         </div>
         <div className="account-info">
           <p>CyberLearn.vn</p>

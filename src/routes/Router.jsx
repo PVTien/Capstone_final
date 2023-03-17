@@ -28,9 +28,16 @@ export default function Router() {
       ],
     },
     {
-      path: "/login",
-      element: <Login />,
+      path: "/",
+      element: <NoAuthGuard/>,
+      children: [
+        {
+          path: "/login",
+          element: <Login />,
+        },
+      ],
     },
+    
   ]);
   return routing;
 }

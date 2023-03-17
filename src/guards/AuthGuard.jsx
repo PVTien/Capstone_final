@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
 
-export default function NoAuthGuard() {
+export default function AuthGuard() {
   const userState = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
-    if (userState.userInfo) {
-      navigate("/");
+    if (!userState.userInfo) {
+      alert("Đăng nhập tiếp tục vào trang");
+      navigate("/login");
     }
   }, []);
   

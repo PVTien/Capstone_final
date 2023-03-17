@@ -16,7 +16,7 @@ export default function SearchModalJira() {
             <div className="search-block">
               <input className="search" />
               {/* <i className="fa fa-search" /> */}
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i className="fa-solid fa-magnifying-glass"></i>
             </div>
             <button
               type="button"

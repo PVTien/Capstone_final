@@ -33,8 +33,11 @@ export default function Login() {
     try {
       const result = await loginApi(state);
       console.log(result);
-      localStorage.getItem("USER_INFO_KEY", JSON.stringify(result.data.content));
+
+      localStorage.setItem("USER_INFO_KEY", JSON.stringify(result.data.content));
+
       dispatch(setUserInfoAction(result.data.content));
+      
       notification.success({
         message: "Đăng nhập thành công",
       });

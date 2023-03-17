@@ -108,7 +108,7 @@ code {
 
 .menu .account {
   display: flex;
-  padding: 5% 17%;
+  padding: 0% 10%;
   margin-bottom: 5%;
 }
 
@@ -138,12 +138,12 @@ code {
 }
 
 .menu .control {
-  padding: 0% 10%;
+  /* padding: 0% 10%; */
   text-align: left;
   margin-bottom: 8%;
   border-bottom: 2px solid #c4c5c6;
-  margin-left: 7%;
-  margin-right: 7%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .menu .control div {
